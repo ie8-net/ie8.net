@@ -1,37 +1,24 @@
 ---
-import Icon from './Icon.astro';
-
 interface Props {
   name: string;
   desc?: string;
-  iconKey: string;
   color?: string;
   modalId: string;
-  featured?: boolean;
   dashed?: boolean;
 }
 
-const { name, desc, iconKey, color, modalId, featured = false, dashed = false } = Astro.props;
+const { name, desc, color, modalId, dashed = false } = Astro.props;
 ---
 
 <button
   type="button"
-  class={`card card-button ${featured ? 'card-featured' : ''} ${dashed ? 'card-dashed' : ''}`}
+  class={`link-item ${dashed ? 'is-dashed' : ''}`}
   data-open-modal={modalId}
+  style={`--c:${color ?? 'var(--accent)'}`}
 >
-  <span class="card-icon">
-    {
-      dashed ? (
-        <Icon name={iconKey} />
-      ) : (
-        <span class="card-icon-mono" style={`--c:${color ?? '#64748b'}`}>
-          <Icon name={iconKey} />
-        </span>
-      )
-    }
+  <span class="link-row">
+    <span class="link-dot"></span>
+    <span class="link-name">{name}</span>
   </span>
-  <span class="card-body">
-    <span class="card-name">{name}</span>
-    {desc && <span class="card-desc">{desc}</span>}
-  </span>
+  {desc && <span class="link-desc">{desc}</span>}
 </button>
