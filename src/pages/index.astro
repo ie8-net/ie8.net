@@ -117,7 +117,7 @@ import {
         return `
       <div class="card-custom-wrap">
         <a class="card card-featured" href="${escapeAttr(link.url)}" target="_blank" rel="noopener noreferrer">
-          <span class="card-icon"><span class="card-icon-mono" style="background:${mono.color}">${escapeHtml(mono.letter)}</span></span>
+          <span class="card-icon"><span class="card-icon-mono" style="--c:${mono.color}">${escapeHtml(mono.letter)}</span></span>
           <span class="card-body"><span class="card-name">${escapeHtml(link.name)}</span></span>
         </a>
         <button type="button" class="card-remove" data-remove-link="${i}" aria-label="删除">
@@ -213,7 +213,7 @@ import {
           ? `href="${escapeAttr(item.href)}" target="_blank" rel="noopener noreferrer"`
           : `type="button" data-open-modal="${escapeAttr(item.modalId!)}"`;
         return `<${tag} class="card" ${attrs}>
-          <span class="card-icon"><span class="card-icon-mono" style="background:${mono.color}">${escapeHtml(mono.letter)}</span></span>
+          <span class="card-icon"><span class="card-icon-mono" style="--c:${mono.color}">${escapeHtml(mono.letter)}</span></span>
           <span class="card-body"><span class="card-name">${escapeHtml(item.name)}</span></span>
         </${tag}>`;
       })

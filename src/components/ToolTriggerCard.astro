@@ -24,7 +24,7 @@ const { name, desc, iconKey, color, modalId, featured = false, dashed = false } 
       dashed ? (
         <Icon name={iconKey} />
       ) : (
-        <span class="card-icon-mono" style={`background:${color ?? '#64748b'}`}>
+        <span class="card-icon-mono" style={`--c:${color ?? '#64748b'}`}>
           <Icon name={iconKey} />
         </span>
       )

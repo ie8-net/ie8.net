@@ -15,7 +15,7 @@ const bg = brand?.hex ?? color ?? '#64748b';
 const letter = name.trim().slice(0, 1).toUpperCase();
 ---
 
-<span class="card-icon-mono" style={`background:${bg}`}>
+<span class="card-icon-mono" style={`--c:${bg}`}>
   {
     iconKey ? (
       <Icon name={iconKey} />
