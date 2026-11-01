@@ -45,42 +45,45 @@ import Icon from './Icon.astro';
 
   .engine-tabs {
     display: flex;
-    gap: 6px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .engine-tab {
-    border: none;
-    background: transparent;
+    border: 1px solid var(--border);
+    background: var(--surface);
     color: var(--text-muted);
-    font-size: 14px;
-    padding: 7px 14px;
-    border-radius: var(--radius);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
     cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
 
   .engine-tab[data-active='true'] {
-    background: var(--bg-elevated);
-    color: var(--text);
-    box-shadow: var(--shadow);
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-color: var(--accent);
     font-weight: 600;
   }
 
   .search-box {
     width: 100%;
-    max-width: 680px;
+    max-width: 640px;
     display: flex;
     align-items: center;
-    background: var(--bg-elevated);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 24px rgba(0, 0, 0, 0.04);
-    padding: 6px 8px 6px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 6px 6px 6px 22px;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .search-box:focus-within {
     border-color: var(--accent);
-    box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 20%, transparent);
+    box-shadow: var(--shadow-md), 0 6px 22px var(--accent-soft);
   }
 
   #search-input {
@@ -88,15 +91,15 @@ import Icon from './Icon.astro';
     border: none;
     background: transparent;
     outline: none;
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text);
-    padding: 16px 0;
+    padding: 15px 0;
   }
 
   .search-submit {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
     border: none;
     background: var(--accent);
     color: var(--accent-contrast);
@@ -106,6 +109,11 @@ import Icon from './Icon.astro';
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: filter 0.15s ease;
+  }
+
+  .search-submit:hover {
+    filter: brightness(1.07);
   }
 
   .search-submit :global(.icon) {
