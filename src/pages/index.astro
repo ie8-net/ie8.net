@@ -32,8 +32,6 @@ import {
   <nav class="cat-nav">
     <a href="#sec-tools">常用工具</a>
     <a href="#sec-ai">AI 工具</a>
-    <a href="#sec-img">图片生成</a>
-    <a href="#sec-trans">翻译</a>
     <a href="#sec-ad">广告平台</a>
   </nav>
 
@@ -69,11 +67,7 @@ import {
       </div>
     </section>
 
-    <LinkSection title="AI 工具" items={aiTools} id="sec-ai" />
-
-    <LinkSection title="图片生成" items={imageTools} id="sec-img" />
-
-    <LinkSection title="翻译" items={translateTools} id="sec-trans" />
+    <LinkSection title="AI 工具" items={[...aiTools, ...imageTools, ...translateTools]} id="sec-ai" />
 
     <LinkSection title="广告平台" items={adPlatforms} id="sec-ad" />
   </div>
@@ -89,6 +83,11 @@ import {
   <Modal id="add-link" title="添加网址">
     <AddLinkForm />
   </Modal>
+
+  <footer class="site-footer">
+    <div>ie8.net · 你的浏览器起始页</div>
+    <div class="footer-note">收藏本页设为首页，一键直达常用服务与 AI 工具</div>
+  </footer>
 </Layout>
 
 <script>

@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { large = false } = Astro.props;
-const size = large ? 52 : 30;
+const size = large ? 60 : 30;
 ---
 
 <div class={`logo ${large ? 'logo-lg' : ''}`}>
@@ -46,10 +46,10 @@ const size = large ? 52 : 30;
   }
 
   .logo-lg .logo-word {
-    font-size: 44px;
+    font-size: 50px;
   }
 
   .logo-lg .logo-mark-text {
-    font-size: 27px;
+    font-size: 30px;
   }
 </style>
