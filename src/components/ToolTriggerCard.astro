@@ -17,7 +17,6 @@ const { name, desc, color, modalId, dashed = false } = Astro.props;
   style={`--c:${color ?? 'var(--accent)'}`}
 >
   <span class="link-row">
-    <span class="link-dot"></span>
     <span class="link-name">{name}</span>
   </span>
   {desc && <span class="link-desc">{desc}</span>}

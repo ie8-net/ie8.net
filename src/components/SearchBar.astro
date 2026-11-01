@@ -39,26 +39,31 @@ import Icon from './Icon.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
     width: 100%;
   }
 
   .engine-tabs {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .engine-tab {
-    border: 1px solid var(--border);
-    background: var(--surface);
+    border: 1px solid transparent;
+    background: transparent;
     color: var(--text-muted);
     font-size: 13px;
     padding: 6px 14px;
     border-radius: var(--radius-pill);
     cursor: pointer;
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .engine-tab:hover {
+    color: var(--text);
+    background: var(--surface-2);
   }
 
   .engine-tab[data-active='true'] {
@@ -70,20 +75,20 @@ import Icon from './Icon.astro';
 
   .search-box {
     width: 100%;
-    max-width: 640px;
+    max-width: 680px;
     display: flex;
     align-items: center;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-pill);
     box-shadow: var(--shadow-md);
-    padding: 6px 6px 6px 22px;
+    padding: 6px 6px 6px 24px;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .search-box:focus-within {
     border-color: var(--accent);
-    box-shadow: var(--shadow-md), 0 6px 22px var(--accent-soft);
+    box-shadow: var(--shadow-md), 0 8px 26px var(--accent-soft);
   }
 
   #search-input {
@@ -91,15 +96,15 @@ import Icon from './Icon.astro';
     border: none;
     background: transparent;
     outline: none;
-    font-size: 17px;
+    font-size: 18px;
     color: var(--text);
-    padding: 15px 0;
+    padding: 18px 0;
   }
 
   .search-submit {
-    width: 46px;
-    height: 46px;
-    border-radius: 13px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     border: none;
     background: var(--accent);
     color: var(--accent-contrast);
@@ -117,8 +122,8 @@ import Icon from './Icon.astro';
   }
 
   .search-submit :global(.icon) {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
   }
 </style>
 

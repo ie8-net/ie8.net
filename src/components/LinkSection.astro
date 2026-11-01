@@ -23,7 +23,6 @@ const { title, items, id } = Astro.props;
           style={`--c:${item.color ?? 'var(--accent)'}`}
         >
           <span class="link-row">
-            <span class="link-dot"></span>
             <span class="link-name">{item.name}</span>
           </span>
           {item.desc && <span class="link-desc">{item.desc}</span>}
