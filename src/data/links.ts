@@ -81,4 +81,6 @@ export const myServices: LinkItem[] = [
   { name: 'Headless CMS', url: 'https://pub.ie8.net', desc: '内容管理服务', iconKey: 'cms', color: '#4F46E5' },
   { name: '图床服务', url: 'https://hub.ie8.net', desc: '图片托管与分发', iconKey: 'hub', color: '#DB2777' },
   { name: '短网址', url: 'https://1115.eu.org', desc: '链接缩短服务', iconKey: 'shorturl', color: '#059669' },
+  { name: 'Git MCP', url: 'https://git-mcp.ie8.net/', desc: 'Git MCP 服务', iconKey: 'git', color: '#F05032' },
+  { name: '企业邮箱', url: 'https://mail.ie8.net', desc: 'ie8.net 邮件服务', iconKey: 'mail', color: '#0EA5E9' },
 ];
