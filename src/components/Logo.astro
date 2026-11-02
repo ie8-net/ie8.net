@@ -4,15 +4,21 @@ interface Props {
 }
 
 const { large = false } = Astro.props;
-const size = large ? 60 : 30;
+const size = large ? 40 : 26;
 ---
 
 <div class={`logo ${large ? 'logo-lg' : ''}`}>
-  <svg class="logo-mark" width={size} height={size} viewBox="0 0 30 30" aria-hidden="true">
-    <rect width="30" height="30" rx="7" class="logo-mark-bg" />
-    <text x="15" y="21" text-anchor="middle" class="logo-mark-text">8</text>
+  <svg
+    class="logo-mark"
+    width={size}
+    height={size * 1.25}
+    viewBox="0 0 32 40"
+    aria-hidden="true"
+  >
+    <circle cx="16" cy="12" r="10" class="logo-ring" />
+    <circle cx="16" cy="28" r="10" class="logo-ring" />
   </svg>
-  <span class="logo-word">ie8<span class="logo-word-muted">.net</span></span>
+  <span class="logo-word">ie<span class="logo-accent">8</span><span class="logo-muted">.net</span></span>
 </div>
 
 <style>
@@ -23,42 +29,39 @@ const size = large ? 60 : 30;
   }
 
   .logo-mark {
-    border-radius: var(--radius);
+    display: block;
   }
 
-  .logo-mark-bg {
-    fill: var(--accent);
-  }
-
-  .logo-mark-text {
-    font-size: 16px;
-    font-weight: 300;
-    fill: var(--accent-contrast);
-    font-family: inherit;
+  .logo-ring {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 4.5;
+    stroke-linecap: round;
   }
 
   .logo-word {
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--text);
   }
 
-  .logo-word-muted {
+  .logo-accent {
+    color: var(--accent);
+  }
+
+  .logo-muted {
     color: var(--text-muted);
-    font-weight: 300;
+    font-weight: 500;
   }
 
   .logo-lg .logo-word {
-    font-size: 56px;
+    font-size: 58px;
+    letter-spacing: -0.03em;
   }
 
   .logo-lg .logo-mark {
     width: 64px;
-    height: 64px;
-  }
-
-  .logo-lg .logo-mark-text {
-    font-size: 34px;
+    height: 80px;
   }
 </style>
