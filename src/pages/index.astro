@@ -4,7 +4,6 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import SearchBar from '../components/SearchBar.astro';
 import LinkSection from '../components/LinkSection.astro';
 import Logo from '../components/Logo.astro';
-import Icon from '../components/Icon.astro';
 import {
   aiTools,
   imageTools,
@@ -15,31 +14,19 @@ import {
 ---
 
 <Layout title="ie8.net — 起始页">
-  <aside class="sidebar">
-    <a class="brand-home" href="/" aria-label="ie8.net 首页"><Logo /></a>
-    <div class="sidebar-label">WORKSPACE</div>
-    <nav class="side-nav" aria-label="分类导航">
-      <a class="is-active" href="#top"><Icon name="home" />我的起始页<span>↗︎</span></a>
-      <a href="#sec-tools"><Icon name="ip" />常用工具</a>
-      <a href="#sec-ai"><Icon name="search" />AI 工具</a>
-      <a href="#sec-ad"><Icon name="cms" />广告平台</a>
-    </nav>
-    <div class="sidebar-bottom"><div class="mini-mark">8</div><strong>少一点寻找，多一点创造。</strong><p>让每一次出发，都简单一点。</p><a href="https://github.com/ie8-net/ie8.net" target="_blank" rel="noopener noreferrer">GitHub ↗︎</a></div>
-  </aside>
   <main id="top" class="workspace">
-    <header class="topbar"><span>我的工作台 <span class="breadcrumb">/ 起始页</span></span><div class="topbar-actions"><span class="today" id="today"></span><ThemeToggle /></div></header>
+    <header class="topbar"><a class="brand-home" href="/" aria-label="ie8.net 首页"><Logo /></a><div class="topbar-actions"><span class="today" id="today"></span><ThemeToggle /></div></header>
     <div class="page-content">
       <section class="hero-band" aria-label="搜索">
         <div class="hero-band-inner">
           <div class="eyebrow"><span></span> YOUR DAILY STARTING POINT</div>
           <h1>好用的入口，<span>刚刚好。</span></h1>
           <p class="tagline">连接你的常用工具，把时间留给重要的事。</p>
-          <SearchBar />
+          <div class="hero-search"><SearchBar /></div>
           <p class="search-hint"><kbd>/</kbd> 快速搜索 <span>·</span> 从这里，开启今天的灵感</p>
         </div>
         <div class="hero-orbit" aria-hidden="true"><svg viewBox="0 0 240 240"><ellipse cx="120" cy="120" rx="91" ry="43" transform="rotate(-40 120 120)"/><ellipse cx="120" cy="120" rx="91" ry="43" transform="rotate(40 120 120)"/><circle cx="120" cy="120" r="8"/></svg></div>
       </section>
-      <div class="directory-header"><div><h2>探索你的工具箱</h2><p>精选常用服务，随时一键直达。</p></div><span class="directory-count">33 个精选入口 <span>↗︎</span></span></div>
       <nav class="cat-nav" aria-label="工具筛选">
         <button class="is-active" data-filter="all" aria-pressed="true">全部工具 <span>33</span></button>
         <button data-filter="sec-tools" aria-pressed="false">常用工具 <span>6</span></button>
@@ -132,11 +119,6 @@ import {
     document.querySelectorAll<HTMLElement>('.container > .section:not(#recent-section)').forEach(section => {
       section.hidden = button.dataset.filter !== 'all' && section.id !== button.dataset.filter;
     });
-  }));
-  document.querySelectorAll<HTMLAnchorElement>('.side-nav a').forEach(link => link.addEventListener('click', () => {
-    const filter = link.hash === '#top' ? 'all' : link.hash.slice(1);
-    document.querySelector<HTMLButtonElement>(`[data-filter="${filter}"]`)?.click();
-    document.querySelectorAll('.side-nav a').forEach(a => a.classList.toggle('is-active', a === link));
   }));
   document.getElementById('today')!.textContent = new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' }).format(new Date());
   document.addEventListener('keydown', e => {
