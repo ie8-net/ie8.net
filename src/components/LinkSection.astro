@@ -20,7 +20,6 @@ const { title, items, id } = Astro.props;
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          style={`--c:${item.color ?? 'var(--accent)'}`}
         >
           <span class="link-row">
             <span class="link-name">{item.name}</span>

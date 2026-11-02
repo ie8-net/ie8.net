@@ -14,7 +14,6 @@ const { name, desc, color, modalId, dashed = false } = Astro.props;
   type="button"
   class={`link-item ${dashed ? 'is-dashed' : ''}`}
   data-open-modal={modalId}
-  style={`--c:${color ?? 'var(--accent)'}`}
 >
   <span class="link-row">
     <span class="link-name">{name}</span>

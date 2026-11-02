@@ -52,6 +52,7 @@ export const aiTools: LinkItem[] = [
   { name: '通义千问', url: 'https://tongyi.aliyun.com', desc: '阿里云', color: '#7C3AED' },
   { name: '文心一言', url: 'https://yiyan.baidu.com', desc: '百度', color: '#2932E1' },
   { name: '智谱清言', url: 'https://chatglm.cn', desc: '智谱 AI', color: '#0E9F6E' },
+  { name: 'Cursor', url: 'https://cursor.com', desc: 'AI 编程助手', color: '#000000' },
 ];
 
 export const imageTools: LinkItem[] = [
@@ -74,6 +75,8 @@ export const adPlatforms: LinkItem[] = [
   { name: '巨量引擎', url: 'https://www.oceanengine.com', desc: '字节跳动', brandIcon: 'siBytedance' },
   { name: '腾讯广告', url: 'https://e.qq.com', desc: '', color: '#0052D9' },
   { name: '阿里妈妈', url: 'https://www.alimama.com', desc: '', brandIcon: 'siAlibabacloud' },
+  { name: '快手磁力引擎', url: 'https://www.e.kuaishou.com', desc: '快手商业', color: '#FE2C55' },
+  { name: '小红书商业', url: 'https://business.xiaohongshu.com', desc: '', color: '#FF2442' },
 ];
 
 export const myServices: LinkItem[] = [

@@ -51,7 +51,6 @@ import {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              style={`--c:${item.color ?? 'var(--accent)'}`}
             >
               <span class="link-row">
                 <span class="link-name">{item.name}</span>
@@ -60,8 +59,8 @@ import {
             </a>
           ))
         }
-        <ToolTriggerCard name="密码生成器" desc="纯本地生成，不上传" color="#D97706" modalId="pwd" />
-        <ToolTriggerCard name="二维码生成器" desc="文本 / 网址转二维码" color="#334155" modalId="qr" />
+        <ToolTriggerCard name="密码生成器" desc="纯本地生成，不上传" modalId="pwd" />
+        <ToolTriggerCard name="二维码生成器" desc="文本 / 网址转二维码" modalId="qr" />
         <div id="custom-links-slot" style="display: contents;"></div>
         <ToolTriggerCard name="添加网址" desc="保存到本机浏览器" modalId="add-link" dashed />
       </div>
@@ -85,14 +84,21 @@ import {
   </Modal>
 
   <footer class="site-footer">
-    <div>ie8.net · 你的浏览器起始页</div>
-    <div class="footer-note">收藏本页设为首页，一键直达常用服务与 AI 工具</div>
+    <div class="site-footer-inner">
+      <div>
+        <div class="footer-brand">ie8.net</div>
+        <div class="footer-note">你的浏览器起始页 · 收藏本页设为首页，一键直达常用服务与 AI 工具</div>
+      </div>
+      <div class="footer-links">
+        <a href="#sec-tools">常用工具</a>
+        <a href="#sec-ai">AI 工具</a>
+        <a href="#sec-ad">广告平台</a>
+      </div>
+    </div>
   </footer>
 </Layout>
 
 <script>
-  import { monogram } from '../data/links';
-
   interface CustomLink {
     name: string;
     url: string;
@@ -120,9 +126,8 @@ import {
     const links = load();
     slot.innerHTML = links
       .map((link, i) => {
-        const mono = monogram(link.name);
         return `
-      <div class="link-item is-custom" style="--c:${mono.color}">
+      <div class="link-item is-custom">
         <a class="link-main" href="${escapeAttr(link.url)}" target="_blank" rel="noopener noreferrer">
           <span class="link-row"><span class="link-name">${escapeHtml(link.name)}</span></span>
         </a>
@@ -213,12 +218,11 @@ import {
     recentSection.hidden = false;
     recentGrid.innerHTML = list
       .map((item) => {
-        const mono = monogram(item.name);
         const tag = item.href ? 'a' : 'button';
         const attrs = item.href
           ? `href="${escapeAttr(item.href)}" target="_blank" rel="noopener noreferrer"`
           : `type="button" data-open-modal="${escapeAttr(item.modalId!)}"`;
-        return `<${tag} class="link-item" ${attrs} style="--c:${mono.color}">
+        return `<${tag} class="link-item" ${attrs}>
           <span class="link-row"><span class="link-name">${escapeHtml(item.name)}</span></span>
         </${tag}>`;
       })
@@ -247,4 +251,28 @@ import {
   });
 
   renderRecent();
+
+  // --- Scroll-spy: highlight the current section in the anchor nav ---
+  const navLinks = Array.from(document.querySelectorAll('.cat-nav a'));
+  const navMap = new Map<string, HTMLElement>();
+  navLinks.forEach((a) => {
+    const id = a.getAttribute('href')?.slice(1);
+    if (id) navMap.set(id, a as HTMLElement);
+  });
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('.section[id]'));
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((l) => l.classList.remove('is-active'));
+            navMap.get(entry.target.id)?.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
 </script>

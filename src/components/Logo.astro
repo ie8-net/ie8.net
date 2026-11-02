@@ -22,34 +22,43 @@ const size = large ? 60 : 30;
     gap: 12px;
   }
 
+  .logo-mark {
+    border-radius: var(--radius);
+  }
+
   .logo-mark-bg {
     fill: var(--accent);
   }
 
   .logo-mark-text {
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 300;
     fill: var(--accent-contrast);
     font-family: inherit;
   }
 
   .logo-word {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
     color: var(--text);
   }
 
   .logo-word-muted {
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 300;
   }
 
   .logo-lg .logo-word {
-    font-size: 50px;
+    font-size: 56px;
+  }
+
+  .logo-lg .logo-mark {
+    width: 64px;
+    height: 64px;
   }
 
   .logo-lg .logo-mark-text {
-    font-size: 30px;
+    font-size: 34px;
   }
 </style>
