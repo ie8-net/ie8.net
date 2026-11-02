@@ -8,12 +8,13 @@ import Icon from './Icon.astro';
     <div class="search-box">
       <input
         id="search-input"
-        type="text"
-        placeholder="输入关键词搜索…"
+        type="search"
+        aria-label="搜索关键词"
+        placeholder="搜索一下，发现更多可能…"
         autocomplete="off"
       />
       <button type="submit" class="search-submit" aria-label="搜索">
-        <Icon name="search" />
+        <Icon name="search" /><span>搜索</span>
       </button>
     </div>
     <div id="engine-tabs" class="engine-tabs">
@@ -33,98 +34,7 @@ import Icon from './Icon.astro';
   </form>
 </div>
 
-<style>
-  .search-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-  }
 
-  .engine-tabs {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .engine-tab {
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    padding: 4px 1px;
-    border-bottom: 1px solid transparent;
-    cursor: pointer;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .engine-tab:hover {
-    color: var(--text);
-  }
-
-  .engine-tab[data-active='true'] {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-    font-weight: 500;
-  }
-
-  .search-box {
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    align-items: center;
-    background: var(--bg-alt);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 8px 8px 8px 28px;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-  }
-
-  .search-box:focus-within {
-    background: var(--surface);
-    border-color: var(--accent);
-    box-shadow: var(--shadow-focus);
-  }
-
-  #search-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 23px;
-    font-weight: 300;
-    color: var(--text);
-    padding: 25px 0;
-  }
-
-  .search-submit {
-    width: 60px;
-    height: 60px;
-    border-radius: var(--radius);
-    border: none;
-    background: var(--accent);
-    color: var(--accent-contrast);
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 0.15s ease;
-  }
-
-  .search-submit:hover {
-    filter: brightness(1.06);
-  }
-
-  .search-submit :global(.icon) {
-    width: 24px;
-    height: 24px;
-  }
-</style>
 
 <script is:inline>
   (function () {
