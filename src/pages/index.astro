@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import SearchBar from '../components/SearchBar.astro';
 import LinkSection from '../components/LinkSection.astro';
+import Modal from '../components/Modal.astro';
+import PasswordGenerator from '../components/PasswordGenerator.astro';
+import QRGenerator from '../components/QRGenerator.astro';
+import ToolTriggerCard from '../components/ToolTriggerCard.astro';
 import Logo from '../components/Logo.astro';
 import {
   aiTools,
@@ -11,6 +15,10 @@ import {
   adPlatforms,
   myServices,
 } from '../data/links';
+
+const toolCount = myServices.length + 2;
+const aiCount = aiTools.length + imageTools.length + translateTools.length;
+const totalCount = toolCount + aiCount + adPlatforms.length;
 ---
 
 <Layout title="ie8.net — 起始页">
@@ -28,20 +36,25 @@ import {
         <div class="hero-orbit" aria-hidden="true"><svg viewBox="0 0 240 240"><ellipse cx="120" cy="120" rx="91" ry="43" transform="rotate(-40 120 120)"/><ellipse cx="120" cy="120" rx="91" ry="43" transform="rotate(40 120 120)"/><circle cx="120" cy="120" r="8"/></svg></div>
       </section>
       <nav class="cat-nav" aria-label="工具筛选">
-        <button class="is-active" data-filter="all" aria-pressed="true">全部工具 <span>33</span></button>
-        <button data-filter="sec-tools" aria-pressed="false">常用工具 <span>6</span></button>
-        <button data-filter="sec-ai" aria-pressed="false">AI 工具 <span>18</span></button>
-        <button data-filter="sec-ad" aria-pressed="false">广告平台 <span>9</span></button>
+        <button class="is-active" data-filter="all" aria-pressed="true">全部工具 <span>{totalCount}</span></button>
+        <button data-filter="sec-tools" aria-pressed="false">常用工具 <span>{toolCount}</span></button>
+        <button data-filter="sec-ai" aria-pressed="false">AI 工具 <span>{aiCount}</span></button>
+        <button data-filter="sec-ad" aria-pressed="false">广告平台 <span>{adPlatforms.length}</span></button>
       </nav>
       <div class="container">
         <section class="section" id="recent-section" hidden><h2 class="section-title">最近访问</h2><div class="link-grid" id="recent-grid"></div></section>
-        <LinkSection title="常用工具" items={myServices} id="sec-tools" />
+        <LinkSection title="常用工具" items={myServices} id="sec-tools" extraCount={2}>
+          <ToolTriggerCard name="二维码生成" desc="文本或网址转二维码" iconKey="qrcode" modalId="qr" />
+          <ToolTriggerCard name="密码生成器" desc="本地生成随机密码" iconKey="key" modalId="password" />
+        </LinkSection>
         <LinkSection title="AI 工具" items={[...aiTools, ...imageTools, ...translateTools]} id="sec-ai" />
         <LinkSection title="广告平台" items={adPlatforms} id="sec-ad" />
       </div>
       <footer class="site-footer"><span>© {new Date().getFullYear()} ie8.net</span><span>简单一点，高效一点。<span class="footer-dot">●</span> 为日常而设计</span><a href="#top">回到顶部 ↑</a></footer>
     </div>
   </main>
+  <Modal id="qr" title="二维码生成"><QRGenerator /></Modal>
+  <Modal id="password" title="密码生成器"><PasswordGenerator /></Modal>
 </Layout>
 
 <script>

@@ -987,3 +987,12 @@ h1 {
     padding-block: 10px;
   }
 }
+
+button.link-item { width: 100%; text-align: left; color: inherit; font: inherit; cursor: pointer; }
+.qr-row > input { width: 100%; }
+.modal-panel { max-height: calc(100dvh - 40px); overflow-y: auto; }
+@media (min-width: 1200px) {
+  .link-grid { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .link-item { gap: 7px; padding-inline: 8px; }
+  .card-icon-mono { width: 26px; height: 26px; }
+}
