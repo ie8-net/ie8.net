@@ -1,22 +1,28 @@
 ---
+import BrandTile from './BrandTile.astro';
+
 interface Props {
   name: string;
   desc?: string;
   color?: string;
+  iconKey?: string;
   modalId: string;
   dashed?: boolean;
 }
 
-const { name, desc, color, modalId, dashed = false } = Astro.props;
+const { name, desc, color = '#157c60', iconKey, modalId, dashed = false } = Astro.props;
 ---
 
 <button
   type="button"
   class={`link-item ${dashed ? 'is-dashed' : ''}`}
   data-open-modal={modalId}
+  aria-haspopup="dialog"
+  title={name}
 >
-  <span class="link-row">
+  <BrandTile name={name} color={color} iconKey={iconKey} />
+  <span class="link-main"><span class="link-row">
     <span class="link-name">{name}</span>
   </span>
-  {desc && <span class="link-desc">{desc}</span>}
+  {desc && <span class="link-desc">{desc}</span>}</span>
 </button>

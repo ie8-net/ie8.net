@@ -6,19 +6,21 @@ interface Props {
   title: string;
   items: LinkItem[];
   id?: string;
+  extraCount?: number;
 }
 
-const { title, items, id } = Astro.props;
+const { title, items, id, extraCount = 0 } = Astro.props;
 ---
 
 <section class="section" id={id}>
-  <h2 class="section-title">{title}<span class="section-count">{items.length.toString().padStart(2, '0')}</span><span class="section-subtitle">{id === 'sec-tools' ? '日常所需，触手可及' : id === 'sec-ai' ? '让灵感与效率，一起发生' : '连接品牌与更多可能'}</span></h2>
+  <h2 class="section-title">{title}<span class="section-count">{(items.length + extraCount).toString().padStart(2, '0')}</span><span class="section-subtitle">{id === 'sec-tools' ? '日常所需，触手可及' : id === 'sec-ai' ? '让灵感与效率，一起发生' : '连接品牌与更多可能'}</span></h2>
   <div class="link-grid">
     {
       items.map((item) => (
         <a
           class="link-item"
           href={item.url}
+          title={`${item.name} — ${item.desc || item.url}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -29,5 +31,6 @@ const { title, items, id } = Astro.props;
         </a>
       ))
     }
+    <slot />
   </div>
 </section>
