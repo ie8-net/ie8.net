@@ -79,6 +79,10 @@ export const adPlatforms: LinkItem[] = [
   { name: '小红书商业', url: 'https://business.xiaohongshu.com', desc: '', color: '#FF2442' },
 ];
 
+export const commonTools: LinkItem[] = [
+  { name: '阿里云（万网）', url: 'https://wanwang.aliyun.com', desc: '域名注册与管理', brandIcon: 'siAlibabacloud' },
+];
+
 export const myServices: LinkItem[] = [
   { name: 'Keeper', url: 'https://keeper.ie8.net/', desc: 'keeper.ie8.net', iconKey: 'key', color: '#157C60' },
   { name: 'IP 出口检测', url: 'https://ip.ie8.net', desc: '查看当前网络出口 IP 信息', iconKey: 'ip', color: '#0891B2' },

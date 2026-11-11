@@ -996,3 +996,5 @@ button.link-item { width: 100%; text-align: left; color: inherit; font: inherit;
   .link-item { gap: 7px; padding-inline: 8px; }
   .card-icon-mono { width: 26px; height: 26px; }
 }
+
+.cat-nav { flex-wrap: wrap; }
