@@ -80,6 +80,7 @@ export const adPlatforms: LinkItem[] = [
 ];
 
 export const myServices: LinkItem[] = [
+  { name: '阿里云（万网）', url: 'https://wanwang.aliyun.com', desc: '域名注册与管理', brandIcon: 'siAlibabacloud' },
   { name: 'Keeper', url: 'https://keeper.ie8.net/', desc: 'keeper.ie8.net', iconKey: 'key', color: '#157C60' },
   { name: 'IP 出口检测', url: 'https://ip.ie8.net', desc: '查看当前网络出口 IP 信息', iconKey: 'ip', color: '#0891B2' },
   { name: 'Headless CMS', url: 'https://pub.ie8.net', desc: '内容管理服务', iconKey: 'cms', color: '#4F46E5' },
