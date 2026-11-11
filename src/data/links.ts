@@ -84,6 +84,8 @@ export const commonTools: LinkItem[] = [
 ];
 
 export const myServices: LinkItem[] = [
+  { name: '天量', url: 'https://tianliang.zhigen.net/', desc: '新媒体资产管理系统', iconKey: 'cms', color: '#4F46E5' },
+  { name: 'SocialHub', url: 'https://tt.topivf.net/', desc: 'tt.topivf.net', iconKey: 'hub', color: '#0891B2' },
   { name: 'Keeper', url: 'https://keeper.ie8.net/', desc: 'keeper.ie8.net', iconKey: 'key', color: '#157C60' },
   { name: 'IP 出口检测', url: 'https://ip.ie8.net', desc: '查看当前网络出口 IP 信息', iconKey: 'ip', color: '#0891B2' },
   { name: 'Headless CMS', url: 'https://pub.ie8.net', desc: '内容管理服务', iconKey: 'cms', color: '#4F46E5' },
